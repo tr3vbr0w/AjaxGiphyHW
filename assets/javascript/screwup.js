@@ -1,7 +1,6 @@
 // Set Variables for query, beginning array to push user input to, and apiKey
 var outdoorSports = ["skiing", "mountain biking", "climbing", "hiking"]
 var isPlaying = false;
-var addSport = $("#add-sport").val();
 //Function to loop through array and create buttons for each index within the array
 function renderButtons(){
     $('#button-dump').empty();
@@ -23,11 +22,8 @@ $('#newB').on('click', function(event){
 })
 console.log(outdoorSports);
 
-//Click event for when you click button. Sends ajax query for the value of the button (GifSearch), and reaches out to
-//giphy, printing the first ten results from each search. Each result goes to a new div, containing the gifs rating and the gif. The 10 divs are then added 
-//to a new div for each button clicked. That parent div is then prepended to the top of the page.
-
 $('.sports-button').on('click', function(event){
+    event.preventDefault();
     var gifSearch = $(this).text();
     var query = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=I4Y1QZR74bOJ4P0whNJVKO0zovcVM9HX&limit=10"
     $.ajax({
@@ -46,5 +42,5 @@ $('.sports-button').on('click', function(event){
     });
     console.log(r);
 }); 
-//Call render buttons function
+
 renderButtons();
