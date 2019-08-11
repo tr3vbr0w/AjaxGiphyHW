@@ -14,6 +14,7 @@ function renderButtons(){
         
     }
 }
+renderButtons();
 //Click event handler to loop add the value of the search box to the array. render buttons called at the end to add button to the header
 $('#newB').on('click', function(event){
     event.preventDefault();
@@ -27,7 +28,7 @@ console.log(outdoorSports);
 //giphy, printing the first ten results from each search. Each result goes to a new div, containing the gifs rating and the gif. The 10 divs are then added 
 //to a new div for each button clicked. That parent div is then prepended to the top of the page.
 
-$('.sports-button').on('click', function(event){
+$('.sports-button').on('click', function(){
     var gifSearch = $(this).text();
     var query = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=I4Y1QZR74bOJ4P0whNJVKO0zovcVM9HX&limit=10"
     $.ajax({
@@ -44,7 +45,5 @@ $('.sports-button').on('click', function(event){
             $('.gif-dump').prepend(newDiv);
         }
     });
-    console.log(r);
 }); 
 //Call render buttons function
-renderButtons();
