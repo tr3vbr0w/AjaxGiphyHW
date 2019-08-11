@@ -25,9 +25,10 @@ $('.sports-button').on('click', function(){
      }).then(function(r) {
          for (var i = 0; i < r.data.length; i++){
             var eachGifLocation = r.data[i].images.fixed_height.url; 
-            // console.log(eachGif);
+            console.log(eachGifLocation);
             var addGif =$('<img>').attr("src", eachGifLocation);
-            $('.gif-dump').append(addGif);
+            var newDiv = $('<div>').append(addGif)
+            $('.gif-dump').prepend(newDiv);
         }
      });
  }); 
