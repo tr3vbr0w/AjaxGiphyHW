@@ -1,7 +1,7 @@
 // Set Variables for query, beginning array to push user input to, and apiKey
 var outdoorSports =["skiing", "mountain biking", "climbing", "hiking"]
-var query = "https://api.giphy.com/v1/gifs/search?q=" + userSearch + "&api_key=I4Y1QZR74bOJ4P0whNJVKO0zovcVM9HX&limit=10"
-var userSearch = $("#gif-input").val();
+var addSport = $("#add-sport").val();
+// var gifSearch = $(this.on('click'){}).val()
 function renderButtons(){
     $('#button-dump').empty();
     for (var i = 0; i < outdoorSports.length; i++){
@@ -13,11 +13,18 @@ function renderButtons(){
         console.log()
     }
 }
-renderButtons();
-$.ajax({
-    url: query,
-    method: "GET"
-}).then(function(r) {
-    console.log(r)
-
-})
+renderButtons()
+$('.sports-button').on('click', function(){
+    var gifSearch = $(this).text();
+    var query = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=I4Y1QZR74bOJ4P0whNJVKO0zovcVM9HX&limit=10"
+    $.ajax({
+        url: query,
+        method: "GET"
+     }).then(function(r) {
+         for (var i = 0; i < r.data.length; i++){
+            var eachGif = r.data[i].images.fixed_height.url; 
+            console.log(eachGif);
+                //     $('<img>').attr("src", )
+             }
+     });
+ }); 
