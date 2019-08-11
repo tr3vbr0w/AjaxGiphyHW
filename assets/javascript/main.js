@@ -13,7 +13,9 @@ function renderButtons(){
         console.log()
     }
 }
-renderButtons()
+
+renderButtons();
+
 $('.sports-button').on('click', function(){
     var gifSearch = $(this).text();
     var query = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=I4Y1QZR74bOJ4P0whNJVKO0zovcVM9HX&limit=10"
@@ -22,9 +24,10 @@ $('.sports-button').on('click', function(){
         method: "GET"
      }).then(function(r) {
          for (var i = 0; i < r.data.length; i++){
-            var eachGif = r.data[i].images.fixed_height.url; 
-            console.log(eachGif);
-                //     $('<img>').attr("src", )
-             }
+            var eachGifLocation = r.data[i].images.fixed_height.url; 
+            // console.log(eachGif);
+            var addGif =$('<img>').attr("src", eachGifLocation);
+            $('.gif-dump').append(addGif);
+        }
      });
  }); 
