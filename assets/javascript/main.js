@@ -7,11 +7,10 @@ function renderButtons(){
     $('#button-dump').empty();
     for (var i = 0; i < outdoorSports.length; i++){
         var a = $('<button>');
-        a.addClass('sports-button');
+        a.addClass('sports-button btn-danger');
         a.attr('data-name', outdoorSports[i])
         a.text(outdoorSports[i]);
         $('#button-dump').append(a)
-        
     }
 }
 renderButtons();
@@ -41,7 +40,7 @@ $('.sports-button').on('click', function(){
             var addGif =$('<img>').attr("src", eachGifLocation);
             var newDiv = $('<div>').append(addGif);
             newDiv.append($('<p>').text('Rated: '+ rating));
-            newDiv.addClass('innerGif', 'col-3');
+            newDiv.addClass('innerGif col-3');
             $('.gif-dump').prepend(newDiv);
         }
     });
