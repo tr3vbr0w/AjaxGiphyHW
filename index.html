@@ -11,14 +11,23 @@
 </head>
 <body>
     <div class="container">
+        <div class="jumbotron">
+           <div class="row">
+            <img class = "col-4" src="https://media.giphy.com/media/vFXGVzIlemGu4/giphy.gif" alt="">
+            <div id="header-text" class="col-8">
+                <h1 class="display-4">Action Sports Giphy</h1>
+                <hr class="my-4">
+                <form class="text-muted">
+                    <h1>Search a Sport Category, Return Gifs!</h1>
+                    <input type="text" id="add-sport" placeholder="Your Sport Here">
+                    <button class="btn-primary btn-lg" id="newB">Add Sport!</button> 
+                    <button class="btn-primary btn-lg" id="clear-gifs">Clear</button> 
+                </form>
+            </div>
+          </div>
+        </div>
         <header id="button-dump" class="row"></header>
         <div class="row">
-            <form class="text-muted">
-                Search a Sport Category, Return Gifs!<br>
-                <input type="text" id="add-sport"><br>
-                <button id="newB">Add Sport!</button> 
-                <button id="clear-gifs">Clear</button> 
-            </form>
         </div>
         <div class="gif-dump"></div>
     </div>

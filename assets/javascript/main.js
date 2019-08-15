@@ -20,6 +20,7 @@ $('#newB').on('click', function (event) {
     event.preventDefault();
     var addSport = $('#add-sport').val().trim();
     outdoorSports.push(addSport);
+    $('#add-sport').attr('placeholder')
     renderButtons();
 })
 console.log(outdoorSports);
@@ -51,8 +52,10 @@ $('#button-dump').on('click', '.sports-button', function () {
             addGif.attr('data-motion', movingGif);
             var newDiv = $('<div>').append(addGif);
             newDiv.append(ratingDisp);
-            newDiv.addClass('innerGif col-3 m-1');
+            newDiv.addClass('innerGif col-4 m-1');
             $('.gif-dump').prepend(newDiv);
+//Changes data state property of gif on click from still to animate or animate to still. Data state attribute holds current state information 
+//about the gif, and holds wether or not the gif is playing 
             $('#gif-button').on('click', function () {
                 console.log('skdf');
                 
@@ -69,5 +72,4 @@ $('#button-dump').on('click', '.sports-button', function () {
         }
     })
 });
-//Start buttons on pause
 
